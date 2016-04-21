@@ -1,0 +1,158 @@
+@CHARSET "ISO-8859-1";
+
+.ui-dialog {
+	position: fixed;
+	padding: 0;
+	overflow: hidden;
+	display: none;
+}
+
+.ui-dialog .ui-dialog-content {
+	position: relative;
+	border: 0;
+	padding: .5em 1em;
+	background: none;
+	overflow: auto;
+	zoom: 1;
+}
+
+.ui-shadow {
+	-moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.8);
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.ui-corner-all {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.ui-widget-content {
+	border: 1px solid #a8a8a8;
+	background: #ffffff;
+	color: #4f4f4f;
+}
+
+.ui-widget {
+	font-family: Arial, sans-serif;
+	font-size: 1.1em;
+}
+
+.ui-growl {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	width: 301px;
+}
+
+.ui-messages {
+	padding: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.ui-messages ul {
+	list-style-type: none;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+.ui-messages-fatal {
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
+.ui-messages-fatal-summary {
+	font-weight: 700;
+	padding: 2px;
+}
+
+.ui-messages-info {
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
+
+.ui-messages-info-summary {
+	font-weight: 700;
+	padding: 2px;
+}
+
+.ui-messages-warn {
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #8a6d3b;
+	background-color: #fcf8e3;
+	border-color: #faebcc;
+}
+
+.ui-messages-warn-summary {
+	font-weight: 700;
+	padding: 2px;
+}
+
+.ui-messages-error {
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+
+.ui-messages-error-summary {
+	font-weight: 700;
+	padding: 2px;
+}
+
+.ui-tagcloud {
+	width: 100%;
+}
+
+.ui-tagcloud ul {
+	margin: 1em;
+	padding: 0.1em;
+	text-align: center;
+}
+
+.ui-tagcloud li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+}
+
+.ui-tagcloud li a {
+	text-decoration: none;
+	padding: 0 5px;
+}
+
+.ui-tagcloud-strength-1 {
+	font-size: 100%;
+}
+
+.ui-tagcloud-strength-2 {
+	font-size: 120%;
+}
+
+.ui-tagcloud-strength-3 {
+	font-size: 140%;
+}
+
+.ui-tagcloud-strength-4 {
+	font-size: 160%;
+}
+
+.ui-tagcloud-strength-5 {
+	font-size: 180%;
+}
+
+.ui-tagcloud li a.ui-state-hover {
+	border: 0px none;
+	font-weight: inherit;
+}

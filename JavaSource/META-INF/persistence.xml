@@ -1,0 +1,9 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+
+	<persistence-unit name="Tabz-unit">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>TabzDataSource</jta-data-source>
+		<non-jta-data-source>TabzDataSourceNonJta</non-jta-data-source>
+	</persistence-unit>
+
+</persistence>

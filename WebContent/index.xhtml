@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core">
+
+	<ui:composition template="/template/principal.xhtml">
+
+		<ui:define name="conteudo">
+
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="page-header">
+						<h:outputText value="#{mensagem.nomeSistema}"/>
+					</h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-9">
+
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="form-group input-group">
+								<h:inputText value="#{tabMB.campoPesquisa}" styleClass="form-control"/>
+								<span class="input-group-btn">
+									<p:commandButton styleClass="btn btn-default" value="#{mensagem.fa_fa_search}" action="#{tabMB.pesquisar}" update="formulario" escape="false"/>
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12">
+							<p:tagCloud model="#{tabMB.tagCloud}">
+								<p:ajax event="select" update="formulario" listener="#{tabMB.onSelect}" />
+							</p:tagCloud>
+						</div>
+					</div>
+
+					<p:spacer height="5"/>
+
+					<div id="resultadoPesquisa" class="table-responsive">
+						<p:dataTable value="#{tabMB.tabs}" var="tab" rendered="#{tabMB.exibirResultadoPesquisa}" tableStyleClass="table table-hover">
+							<p:column headerText="" styleClass="largura1PX">
+								<p:commandButton styleClass="btn btn-default btn-xs" value="#{mensagem.fa_fa_edit}" action="#{tabMB.editar(tab)}" escape="false" update="formulario"/>
+							</p:column>
+							<p:column>
+								<a href="#{tab.link}" target="_blank" title="#{tab.link}"><h:outputText value="#{tab.nome}"/></a>
+							</p:column>
+							<p:column>
+								<h:outputText value="#{tab.categoriasJuntas}"/>
+							</p:column>
+						</p:dataTable>
+					</div>
+				</div>
+				<div id="dados" class="col-lg-3">
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h:outputText value="#{mensagem.dadosTab}"/>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label><h:outputText value="#{mensagem.nome}"/></label>
+										<p:inputText value="#{tabMB.tab.nome}" placeholder="#{mensagem.nomeAjuda}" styleClass="form-control"/>
+									</div>
+									<div class="form-group">
+										<label><h:outputText value="#{mensagem.link}"/></label>
+										<p:inputText value="#{tabMB.tab.link}" placeholder="#{mensagem.linkAjuda}" styleClass="form-control"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h:outputText value="#{mensagem.categorias}"/>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group input-group">
+										<p:inputText id="categoriasAdicionar" value="#{tabMB.categoriasAdicionar}" placeholder="#{mensagem.catagoriasAdicionar_ajuda}" styleClass="form-control"/>
+										<span class="input-group-btn">
+											<p:commandButton action="#{tabMB.adicionarCategorias}" value="#{mensagem.fa_fa_plus}" escape="false" update="categorias" styleClass="btn btn-default" onclick="PF('statusDialog').show()" oncomplete="PF('statusDialog').hide()"/>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<h:panelGroup id="categorias" styleClass="table-responsive">
+										<p:dataTable id="dataTableCategorias" value="#{tabMB.tab.categorias}" var="categoria" rendered="#{tabMB.exibirCategorias}" paginator="false" tableStyleClass="table table-striped table-bordered table-hover">
+											<p:column styleClass="text-left">
+												<h:outputText value="#{categoria}"/>
+											</p:column>
+											<p:column width="1">
+												<p:commandButton actionListener="#{tabMB.removerCategoria(categoria)}" ajax="true" update="formulario:categorias" value="#{mensagem.fa_fa_remove}" escape="false" styleClass="btn btn-default btn-xs" onclick="PF('statusDialog').show()" oncomplete="PF('statusDialog').hide()"/>
+											</p:column>
+										</p:dataTable>
+									</h:panelGroup>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12">
+							<p:commandButton action="#{tabMB.nova}" value="#{mensagem.nova}" update="formulario" styleClass="btn btn-info btn-block"/>
+							<p:commandButton action="#{tabMB.salvar}" value="#{mensagem.salvar}" update="formulario" styleClass="btn btn-success btn-block" onclick="PF('statusDialog').show()" oncomplete="PF('statusDialog').hide()"/>
+							<p:commandButton action="#{tabMB.excluir}" value="#{mensagem.excluir}" update="formulario" styleClass="btn btn-danger btn-block" onclick="PF('statusDialog').show()" oncomplete="PF('statusDialog').hide()"/>
+						</div>
+					</div>
+
+					<p:spacer height="4"/>
+
+				</div>
+			</div>
+
+		</ui:define>
+
+	</ui:composition>
+
+</html>
